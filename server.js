@@ -1,11 +1,8 @@
-const express = require('express');
-const app = express();
+const app = require('./app');
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send("Hello world! Docker");
-});
-
-app.listen(port, () => {
-  console.log(`Server running at port:  ${port}`);
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Server running at port: ${port}`);
+  });
+}
